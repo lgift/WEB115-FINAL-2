@@ -8,7 +8,8 @@ backgroundMusic.loop = true
 backgroundMusic.volume = 0.6
 backgroundMusic.play()
 
-alphabet = "abcdefghijklmnopqrstuvwxyz"
+const alphabet = "abcdefghijklmnopqrstuvwxyz"
+document.body.style.backgroundColor = "lightpink";
 
 function cipherFunction() {
     let input = document.getElementById('input').value.toLowerCase()
@@ -16,7 +17,7 @@ function cipherFunction() {
     let shift = parseInt(document.getElementById('shiftnumber').value)
     let crypt = document.getElementById('crypt').value
 
-    // validation checks
+    // Validaation checks, makes sure theres actually a number there :3 :3 :3 :3 :3 :3 :3 :3 :3 if not jumpscare shows up and KILLS YOU
     if (isNaN(shift)) {
         document.body.style.backgroundImage = "url('images/angry.png')"
         buzzer.play()
@@ -25,7 +26,7 @@ function cipherFunction() {
         
         setTimeout(() => {
             alert("NO!!! NO!!! INPUT A NUMBER NOW!!!!")
-        }, 0.00)
+        }, 0.05)
 
         setTimeout(() => {
             document.body.style.backgroundImage = ""
@@ -44,7 +45,7 @@ function cipherFunction() {
         }
     }
 
-    // if it's a negative number it'll just go the other way
+    // If it's a negative number, then the shift will turn into a positive number and flip directions so that it goes the other way :3
     if (shift < 0) {
         shift *= -1
         if (direction === "right") {
@@ -55,11 +56,11 @@ function cipherFunction() {
         }
     }
 
-    // character shifting process
+    // character shifting process EPIC MOMENT!!!!!!!!!!!!
 
     let result = ""
 
-    // Processes each character, if character isn't in the alphabet, ignore it just in case
+    // Processes each character, if character isn't in the alphabet, ignore it (so that way i can include epic characters :3)
     for (let i = 0; i < input.length; i++) {
         let character = input[i]
 
@@ -72,7 +73,8 @@ function cipherFunction() {
         let position = alphabet.indexOf(character)
         let newPosition
 
-        // in case some IDIOT puts over 26 and makes it tweak out it wont
+        // just in case some IDIOT puts over 26 and makes it tweak out it wont and it'll wrap around the alphabet
+        // and use the remainder as the shift value
         if (shift > 26) {
             shift = shift % 26
         }
@@ -98,14 +100,14 @@ function cipherFunction() {
     output.style.fontWeight= 'bold'
 }
 
-// added so i can annoyingly overlap VICTORY sounds over each other
+// function that creates a new copy of these audios every single time so that they annoyingly overlap each other :3
 function massExplosion() {
     let BOOMS = new Audio('audios/boom.mp3')
     let YAYS = new Audio('audios/yayay.mp3')
     let HORNS = new Audio('audios/horn.mp3')
     let PARASITE = new Audio('audios/parasite.mp3')
 
-    HORNS.volume = 0.15
+    HORNS.volume = 0.135
 
     BOOMS.play()
     YAYS.play()
