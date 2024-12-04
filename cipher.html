@@ -20,8 +20,8 @@
 
     <label><h1>hi</h1></label>
 
-    <form id = "Form">
-        <textarea rows="10" cols="50"></textarea><br>
+    <form id = "Form" onsubmit="cipherFunction()">
+        <textarea id = "input" placeholder = "SAY SOMETHING" rows="10" cols="50"></textarea><br>
         <label><br>Shift Direction: </label>
 
         <select id = "shiftdirection">
@@ -38,9 +38,11 @@
             <option value="decrypt">decrypt</option>
         </select><br><br>
         
-        <input type="submit" value="SUBMIT NOW!!!!!!!!">
+        <button type="button" onclick="cipherFunction()">ACTIVATE GO GO GO GO GO!!!!</button>
 
     </form>
+
+    <div id="output"></div>
 
 </body>
 </html>
